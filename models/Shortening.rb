@@ -1,4 +1,4 @@
-class Generic
+class Shortening
 	include DataMapper::Resource
 
 	property :id, Serial

@@ -7,7 +7,7 @@ require 'rspec'
 Dir.glob('tests/fixtures/*.rb').each { |file| require_relative file.gsub 'tests/', '' }
 #require_relative '../db/seed_function'
 
-set environment :test
+# set environment :test
 
 def app
 	App
