@@ -1,7 +1,8 @@
-require_relative 'spec_helper'
+# require_relative 'spec_helper'
 describe 'tests' do
+  include Rack::Test::Methods
 	it 'will run get_something and return for nothing' do
 		get '/'
-		last_response.body.should_not be nil
+		expect(last_response.body).to eq "You are here.\n"
 	end
 end
