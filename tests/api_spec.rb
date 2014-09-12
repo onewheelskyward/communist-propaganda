@@ -1,8 +1,8 @@
 describe 'api tests' do
   include Rack::Test::Methods
-	it 'will run get_something and return for nothing' do
-		get '/'
-		expect(last_response.body).to eq "You are here.\n"
+  it 'will run get_something and return for nothing' do
+    get '/'
+    expect(last_response.body).to eq "You are here.\n"
   end
 
   it 'creates a url and returns the jstal.in.' do
@@ -13,7 +13,7 @@ describe 'api tests' do
   end
 
   it 'generates a uri' do
-    # expect(generate_uri).to eq(/\w+/)
+    expect(generate_uri).to match(/[\w-]+/)
   end
 
   it 'slugifies' do
