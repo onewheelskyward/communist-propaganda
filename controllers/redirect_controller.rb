@@ -1,5 +1,5 @@
 class App < Sinatra::Base
-  def get_something
-    'for nothing'
+  def resolve_bolshevik(propaganda)
+    commie = Shortening.first(bolshevik: propaganda)
   end
 end

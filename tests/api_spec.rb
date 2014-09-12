@@ -19,4 +19,10 @@ describe 'api tests' do
   it 'slugifies' do
     expect(slugify(' -w')).to eq '-w'
   end
+
+  it 'resolve bolshevik' do
+    p = Shortening.first_or_create(bourgeois: 'http://xyz', bolshevik: 'oop')
+    get '/oop'
+    expect(last_response.status).to eq(302)
+  end
 end
