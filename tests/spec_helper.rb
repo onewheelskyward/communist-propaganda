@@ -4,7 +4,6 @@ require 'rubygems'
 require 'sinatra'
 require 'rack/test'
 require 'rspec'
-Dir.glob('tests/*.rb').each { |file| require_relative file.gsub 'tests/', '' }
 #require_relative '../db/seed_function'
 
 # set environment :test
@@ -17,6 +16,9 @@ RSpec.configure do |config|
 	config.include Sinatra::Helpers
 	config.include Rack::Test::Methods
 end
+
+# Dir.glob('controllers/*.rb').each { |file| require_relative '../' + file }
+Dir.glob('tests/*.rb').each { |file| require_relative file.gsub 'tests/', '' }
 
 #def auth
 #	authorize 'admin', 'admin'

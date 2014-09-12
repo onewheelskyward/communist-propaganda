@@ -9,6 +9,14 @@ describe 'api tests' do
     post '/shortening', {bourgeois: 'http://yo.yo'}.to_json
     expect(last_response.status).to eq(201)
     bod = JSON.parse last_response.body
-    expect(bod['bolshevik']).to eq('jstal.in')
+    expect(bod['bolshevik']).to match(/\w+\-\w+\-\w+\-/)
+  end
+
+  it 'generates a uri' do
+    # expect(generate_uri).to eq(/\w+/)
+  end
+
+  it 'slugifies' do
+    expect(slugify(' -w')).to eq '-w'
   end
 end

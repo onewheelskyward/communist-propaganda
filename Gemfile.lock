@@ -83,6 +83,7 @@ GEM
       rack (>= 1.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    randexp (0.1.7)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -129,6 +130,7 @@ DEPENDENCIES
   data_mapper
   dm-postgres-adapter
   dm-sqlite-adapter
+  randexp
   rspec
   sinatra
   sinatra-reloader

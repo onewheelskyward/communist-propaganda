@@ -21,6 +21,8 @@ class App < Sinatra::Base
   DataMapper.auto_upgrade!
   # DataMapper.auto_migrate!  # This one wipes the database out every time.  Good for testing.
 
+  require_relative 'scripts/db_seed.rb'
+  seed_database
   configure :development do
     require 'sinatra/reloader'
     register Sinatra::Reloader

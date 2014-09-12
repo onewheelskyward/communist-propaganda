@@ -2,10 +2,11 @@ require 'sinatra/base'
 require 'json'
 
 module Sinatra
-	module Helpers
-		def help_me_rhonda
-			return :help_me_rhonda
-		end
-	end
-	helpers Helpers
+  module Helpers
+    def slugify(stuff)
+      stuff.gsub! /\s+/, '-'
+      stuff.gsub /\-{2}/, '-'
+    end
+  end
+  helpers Helpers
 end

@@ -2,6 +2,30 @@ jstal.in/
 
 add list of words and determine structure
 
+parts of speech
+subject, verb, adverb, adjective, noun
+
+Nouns
+Bolsheviks
+Bolshevik
+Communist
+Marxist
+The West
+Comrade
+Lenin
+Earth
+Glavlit
+Party line
+petit-bourgeois
+Agitprop
+
+Verbs
+indoctrinate
+eradicate
+cleanse
+censor
+influence
+
 The State propaganda of communism becomes in the long run a means for the eradication of the last traces
 of bourgeois propaganda dating from the old regime; and it is a powerful instrument for the creation of
 a new ideology, of new modes of thought, of a new outlook on the world.
