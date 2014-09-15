@@ -5,8 +5,8 @@ require 'dm-sqlite-adapter'
 
 DataMapper::Logger.new($stdout, :debug)
 DataMapper::Property::String.length(4000)
-DataMapper.setup(:default, "sqlite://#{File.expand_path(File.dirname(__FILE__))}/sample.sqlite")
-# DataMapper.setup(:default, "postgres://localhost/square-peg")
+# DataMapper.setup(:default, "sqlite://#{File.expand_path(File.dirname(__FILE__))}/sample.sqlite")
+DataMapper.setup(:default, "postgres://localhost/communist-propaganda")
 
 class App < Sinatra::Base
   helpers Sinatra::Helpers
@@ -17,9 +17,19 @@ class App < Sinatra::Base
     Dir.glob("#{folder}/*.rb").each { |file| require_relative file }
   end
 
+  config = YAML.load_file(File.dirname(__FILE__) + '/config.yml')
+
+  if ENV['RACK_ENV'] == 'test'
+    DataMapper::Logger.new($stdout, :debug)
+    DataMapper.setup(:default, "postgres://#{config[:db_user]}:#{config[:db_password]}@#{config[:db_host]}/#{config[:test_db]}")
+    DataMapper.auto_migrate!
+  else
+    DataMapper::Logger.new($stdout, :debug)
+    DataMapper.setup(:default, "postgres://#{config[:db_user]}:#{config[:db_password]}@#{config[:db_host]}/#{config[:db]}")
+    DataMapper.auto_upgrade!
+  end
+
   DataMapper.finalize
-  DataMapper.auto_upgrade!
-  # DataMapper.auto_migrate!  # This one wipes the database out every time.  Good for testing.
 
   require_relative 'scripts/db_seed.rb'
   seed_database

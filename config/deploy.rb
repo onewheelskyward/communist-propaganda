@@ -35,7 +35,6 @@ set :linked_files, %w{config/config.yml}
 set :keep_releases, 3
 
 namespace :deploy do
-
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
@@ -54,5 +53,4 @@ namespace :deploy do
       # end
     end
   end
-
 end
